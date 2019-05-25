@@ -1,0 +1,49 @@
+./calcExpTimes.py 0.25 f275w 18.42 -mv --addsuffix UV --outsubdir test4   --saveNUV --saveFUV   --savetable --savelatex
+./calcExpTimes.py 0.25 f275w 18.42 -mv --addsuffix NUV --outsubdir test4   --saveNUV    --savetable --savelatex
+./calcExpTimes.py 0.25 f275w 18.42 -mv --addsuffix all --outsubdir test4   --saveNUV  --saveFUV --saveIR  --savetable --savelatex
+
+./calcExpTimes.py 0.25 f275w 18.42 -mv --addsuffix OIR --outsubdir test4   --saveO --saveIR  --savetable --savelatex
+./calcExpTimes.py 0.25 f275w 19.92 -mv --addsuffix OIR --outsubdir test4   --saveO --saveIR  --savetable --savelatex
+./calcExpTimes.py 0.25 f275w 21.42 -mv --addsuffix OIR --outsubdir test4   --saveO --saveIR  --savetable --savelatex
+
+./calcExpTimes.py 0.25 f275w 19.92 -mv --addsuffix NUV --outsubdir test4   --saveNUV    --savetable --savelatex
+./calcExpTimes.py 0.25 f275w 19.92 -mv --addsuffix UVIR --outsubdir test4   --saveNUV   --saveIR  --savetable --savelatex
+
+./calcExpTimes.py 0.25 f275w 21.42 -mv --addsuffix NUV --outsubdir test4   --saveNUV    --savetable --savelatex
+./calcExpTimes.py 0.25 f275w 21.42 -mv --addsuffix UVIR --outsubdir test4   --saveNUV   --saveIR  --savetable --savelatex
+
+./calcExpTimes.py 0.25 f275w 19.92 -mv --addsuffix NUV --outsubdir test4   --saveNUV    --savetable --savelatex --lc kilonova_phottable_slow_40Mpc.txt
+./calcExpTimes.py 0.25 f275w 19.92 -mv --addsuffix NUV --outsubdir test4   --saveNUV    --savetable --savelatex --lc kilonova_phottable_fast_40Mpc.txt
+ 
+----
+./calcExpTimes.py 1.059425 f275w 20.5613 -mv --addsuffix OIR --outsubdir 190401   --saveO --saveIR  --savetable --savelatex --phasemax 20
+./calcExpTimes.py 1.059425 f275w 22.0613 -mv --addsuffix OIR --outsubdir 190401   --saveO --saveIR  --savetable --savelatex --phasemax 20
+./calcExpTimes.py 1.059425 f275w 22.5613 -mv --addsuffix OIR --outsubdir 190401   --saveO --saveIR  --savetable --savelatex --phasemax 20
+./calcExpTimes.py 1.059425 f275w 23.5613 -mv --addsuffix OIR --outsubdir 190401   --saveO --saveIR  --savetable --savelatex --phasemax 20
+
+./calcExpTimes.py 1.059425 f275w 20.5613 -mv --addsuffix NUV --outsubdir 190401   --saveNUV  --savetable --savelatex --phasemax 20
+./calcExpTimes.py 1.059425 f275w 22.0613 -mv --addsuffix NUV --outsubdir 190401   --saveNUV  --savetable --savelatex --phasemax 20
+./calcExpTimes.py 1.059425 f275w 22.5613 -mv --addsuffix NUV --outsubdir 190401   --saveNUV  --savetable --savelatex --phasemax 20
+./calcExpTimes.py 1.059425 f275w 23.5613 -mv --addsuffix NUV --outsubdir 190401   --saveNUV  --savetable --savelatex --phasemax 20
+
+tar cfvz KNcalc.tgz calcExpTimes.py func.py spline.py texttable.py tools.py kilonova_phottable*.txt exp_times*txt
+----
+./calcExpTimes.py 1.059425 f275w 20.5613 -mv --addsuffix OIR --outsubdir 190403   --saveO --saveIR  --savetable --savelatex --phasemax 20.5
+./calcExpTimes.py 1.059425 f275w 22.0613 -mv --addsuffix OIR --outsubdir 190403   --saveO --saveIR  --savetable --savelatex --phasemax 20.5
+./calcExpTimes.py 1.059425 f275w 22.5613 -mv --addsuffix OIR --outsubdir 190403   --saveO --saveIR  --savetable --savelatex --phasemax 20.5
+./calcExpTimes.py 1.059425 f275w 23.5613 -mv --addsuffix OIR --outsubdir 190403   --saveO --saveIR  --savetable --savelatex --phasemax 20.5
+
+./calcExpTimes.py 1.059425 f275w 20.5613 -mv --addsuffix NUV --outsubdir 190403   --saveNUV  --savetable --savelatex --phasemax 20.5
+./calcExpTimes.py 1.059425 f275w 22.0613 -mv --addsuffix NUV --outsubdir 190403   --saveNUV  --savetable --savelatex --phasemax 20.5
+./calcExpTimes.py 1.059425 f275w 22.5613 -mv --addsuffix NUV --outsubdir 190403   --saveNUV  --savetable --savelatex --phasemax 20.5
+./calcExpTimes.py 1.059425 f275w 23.5613 -mv --addsuffix NUV --outsubdir 190403   --saveNUV  --savetable --savelatex --phasemax 20.5
+
+./calcExpTimes.py 1.059425 f275w 20.49 -mv --addsuffix NUV --outsubdir 190410DD   --saveNUV    --savetable --savelatex --phasemax 7 --lc kilonova_phottable_slow_40Mpc.txt
+./calcExpTimes.py 1.059425 f275w 24.24 -mv --addsuffix NUV --outsubdir 190410DD   --saveNUV    --savetable --savelatex --phasemax 7 --lc kilonova_phottable_fast_40Mpc.txt
+
+./calcExpTimes.py 1.059425 f275w 20.5613 -mv --addsuffix NUV --outsubdir 190410DD   --saveNUV    --savetable --savelatex --phasemax 7 --lc kilonova_phottable_gw170817_40Mpc.txt
+./calcExpTimes.py 1.059425 f275w 22.0613 -mv --addsuffix NUV --outsubdir 190410DD   --saveNUV    --savetable --savelatex --phasemax 7 --lc kilonova_phottable_gw170817_40Mpc.txt
+./calcExpTimes.py 1.059425 f275w 22.5613 -mv --addsuffix NUV --outsubdir 190410DD   --saveNUV    --savetable --savelatex --phasemax 7 --lc kilonova_phottable_gw170817_40Mpc.txt
+./calcExpTimes.py 1.059425 f275w 23.5613 -mv --addsuffix NUV --outsubdir 190410DD   --saveNUV    --savetable --savelatex --phasemax 7 --lc kilonova_phottable_gw170817_40Mpc.txt
+
+./calcExpTimes.py 1.059425 f275w 20.5613 -mv --addsuffix NUV --outsubdir test   --saveNUV    --savetable  --phasemax 7 --lc kilonova_phottable_gw170817_40Mpc.txt
