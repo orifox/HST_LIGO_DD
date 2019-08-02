@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # 2019
 # L. Strolger, STScI
-
+# a simple routine to help decide to execute a UDToO
+# for KNe possibly associated with neutron star GW event.
 #
 """
 prob_trigger.py [--options]
@@ -21,6 +22,7 @@ Options can be combined. There are some default values for testing
 
 import os,sys,pdb,scipy,glob
 from pylab import *
+from strolger_util import util as u
 
 d0 = 150 #Mpc
 q0 = 1000 #deg2
@@ -40,11 +42,16 @@ def sigmoid_sn(x,*p):
 
 
 def prob_confusion(d0, q0, verbose=True, plotit=True):
-    p0 = (1460, 1, -0.003, 0.)
-    p1 = (1460, 1, 0.003, 0.)
-    Ngal = q0 *pi**2/180**2*d0**2*0.14
+    p0 = (1460, 1, -0.003, 0.) #defines the sigmoid probablity function
+    p1 = (1460, 1, 0.003, 0.) #defines the sigmoid probablity function
+    local_grp_density = 2./14 #galaxies per Mpc^-3
+    ave_lum = 10**12 #in sol. lum
+    snu = 5 ## on average, SNe per Century per 10**12 L_sol
+    Ngal = q0 *pi**2/180**2*d0**2*local_grp_density
     Prob = sigmoid_sn(Ngal, *p0)
-    Nsn=Ngal/100*5/265*5
+    Nsn=Ngal*ave_lum*snu*1e-10*1e-2*5/365.
+
+    ## Nsn = Ngal/100*5/365*5
     Nlo=Nsn-Nsn/5*2
     Nhi=Nsn/5*10.-Nsn
     if verbose:print('Ngal=%.1f, Nsn=%.1f+%.1f-%.1f, Nprob=%.2f' %(Ngal, Nsn, Nhi, Nlo, Prob))
@@ -90,15 +97,23 @@ def prob_confusion(d0, q0, verbose=True, plotit=True):
         ax3.set_xlabel('Distance (Mpc)')
         ax4.set_xlabel(r'Sky localization (10$^3$ deg$^2$)')
         tight_layout()
-        ax1.legend(frameon=False, loc=4)
-        ax2.legend(frameon=False, loc=4)
-        ax5.legend(frameon=False, loc=1)
-        ax6.legend(frameon=False, loc=1)
-        ax3.legend(frameon=False)
-        ax4.legend(frameon=False)
+        lg1=ax1.legend(frameon=False, loc=4)
+        lg2=ax2.legend(frameon=False, loc=4)
+        lg5=ax5.legend(frameon=False, loc=1)
+        lg6=ax6.legend(frameon=False, loc=1)
+        lg3=ax3.legend(frameon=False)
+        lg4=ax4.legend(frameon=False)
         ax5.set_yticks([])
         ax6.set_yticks([])
-        savefig('prob_ccsne.png')
+
+        u.allblack2(ax1, lg1)
+        u.allblack2(ax2, lg2)
+        u.allblack2(ax3, lg3)
+        u.allblack2(ax4, lg4)
+        u.allblack2(ax5, lg5)
+        u.allblack2(ax6, lg6)
+        
+        savefig('prob_ccsne.png', transparent=True)
     return(Prob)
     
     
